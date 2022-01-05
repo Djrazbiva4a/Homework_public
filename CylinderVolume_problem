@@ -1,0 +1,65 @@
+#include <iostream>
+
+using namespace std;
+// Base class 
+
+struct Shape {
+
+	void setWidth(int w) {
+		width = w;
+	}
+	void setRadius(int r) {
+		radius = r;
+	}
+
+protected:
+	int width; 
+	int radius;
+};
+//Derived classes
+struct Area : Shape {
+
+	int  getAreaSquare() {
+		return (width * width);
+	}
+	int getAreaCircle() {
+		return (3.14 * radius * radius);
+	}
+	
+};
+struct Volume : Area {
+
+	void setHeight(int h) {
+		height = h;
+	}
+
+	int getVolumeCube() {
+		return getAreaSquare() * this-> width;
+	}
+	float getVolumeCylinder() {
+		return this->height * getAreaCircle();
+
+	}
+protected:
+	int height;
+};
+
+int main(void) {
+
+		Area Ar;	
+		Ar.setWidth(5);
+		Ar.setRadius(6);
+
+		Volume Vol;
+		Vol.setHeight(1);
+		Vol.setWidth(5);
+
+
+//Print Area and Volume
+
+		cout << "Total Square Area: " << Ar.getAreaSquare() << endl;
+		cout << "Total Circle Area: " << Ar.getAreaCircle() << endl;
+		cout << "Total Cube Volume: " << Vol.getVolumeCube() << endl;
+		cout << "Total Cylinder Volume: " << Vol.getVolumeCylinder() << endl;
+		
+		return 0;
