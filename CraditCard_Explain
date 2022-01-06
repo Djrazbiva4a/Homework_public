@@ -1,0 +1,27 @@
+struct Person { // class Person
+    char* firstName; // character Array
+    char* lastName; // character Array
+    int age;
+    void dump(void)// dump метод в class Person
+    {
+        cout << "Name: " << firstName << " " << lastName << " Age:" << age << endl; 
+    }
+};
+
+struct CreditCard : Person
+{
+    char* cardID;
+    void dump(void)// dump метод в class CreditCard.
+    {
+        cout << "Name: " << firstName << " " << lastName << " Age:" << age << " Card ID:" << cardID << endl;/*тук методът се променя, за да удовлетвори class CreditCard */
+    }  
+
+};
+
+
+/*Има class Person и class CreditCard, който наследява всички променливи от class Person. Dump е метод, който се override-в chiild class-а. Само методът dump от class CreditCard 
+* ще се изпълни
+* (void) - означава, че методът не взима никакъв вход, когато е извикан
+* 
+* 
+*/ 
