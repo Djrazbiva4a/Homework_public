@@ -1,0 +1,75 @@
+#include <iostream>
+
+
+using namespace std;
+// Base class 
+
+struct Shape {
+
+	void setWidth(int w) {
+		width = w;
+	}
+	void setRadius(int r) {
+		radius = r;
+	}
+
+
+friend class Area;
+friend class Volume;
+
+private:
+	int width = 5;
+	int radius = 5;
+
+};
+//Derived classes Shape and Volume
+struct Area : Shape {
+
+	int  getAreaSquare() {
+		return (width * width);
+	}
+
+
+	float getAreaCircle() {
+		return (pi * radius * radius);
+	}
+
+
+const float pi = 3.14;
+	
+};
+struct Volume : Area {
+
+	void setHeight(int h) {
+		height = h;
+	}
+
+	int getVolumeCube() {
+		return getAreaSquare() * this-> width;
+	}
+	double getVolumeCylinder() {
+		return this->height * getAreaCircle();
+
+	}
+
+	Volume() {
+		cout << "The Volume of the Cube is: " << getVolumeCube() << endl;
+		cout << "The Volume of the Cylinder is: " << getVolumeCylinder() << endl;
+	}
+
+
+private:
+	int height = 7;
+
+};
+
+int main (){
+Volume Vol; 
+
+//Print Area and Volume
+
+Vol.getVolumeCube();
+Vol.getVolumeCylinder();
+		
+		return 0;
+};
