@@ -13,7 +13,7 @@ struct Shape {
 	}
 
 protected:
-	int width; 
+	int width;
 	int radius;
 };
 //Derived classes
@@ -25,7 +25,7 @@ struct Area : Shape {
 	int getAreaCircle() {
 		return (3.14 * radius * radius);
 	}
-	
+
 };
 struct Volume : Area {
 
@@ -34,11 +34,10 @@ struct Volume : Area {
 	}
 
 	int getVolumeCube() {
-		return getAreaSquare() * this-> width;
+		return getAreaSquare() * this->width;
 	}
 	float getVolumeCylinder() {
-		return this->height * getAreaCircle();
-
+		return this->height * getAreaCircle();		
 	}
 protected:
 	int height;
@@ -46,20 +45,22 @@ protected:
 
 int main(void) {
 
-		Area Ar;	
-		Ar.setWidth(5);
-		Ar.setRadius(6);
+	Area Ar;
+	Ar.setWidth(5);
+	Ar.setRadius(6);
 
-		Volume Vol;
-		Vol.setHeight(1);
-		Vol.setWidth(5);
+	Volume Vol;
+	Vol.setHeight(5);
+	Vol.setWidth(5);
+	Vol.setRadius(6);
 
 
-//Print Area and Volume
+	//Print Area and Volume
 
-		cout << "Total Square Area: " << Ar.getAreaSquare() << endl;
-		cout << "Total Circle Area: " << Ar.getAreaCircle() << endl;
-		cout << "Total Cube Volume: " << Vol.getVolumeCube() << endl;
-		cout << "Total Cylinder Volume: " << Vol.getVolumeCylinder() << endl;
-		
-		return 0;
+	cout << "Total Square Area: " << Ar.getAreaSquare() << endl;
+	cout << "Total Circle Area: " << Ar.getAreaCircle() << endl;
+	cout << "Total Cube Volume: " << Vol.getVolumeCube() << endl;
+	cout << "Total Cylinder Volume: " << Vol.getVolumeCylinder() << endl;
+
+	return 0;
+};
