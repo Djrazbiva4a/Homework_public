@@ -1,10 +1,15 @@
 #include <iostream>
 
-
 using namespace std;
-// Base class 
+
 
 struct Shape {
+
+	int width;
+	int radius;
+
+	//const float PI = 3.14; 
+
 
 	void setWidth(int w) {
 		width = w;
@@ -12,64 +17,76 @@ struct Shape {
 	void setRadius(int r) {
 		radius = r;
 	}
+	Shape(int width, int radius) {
 
+		this->width = width;
+		this->radius = radius;
 
-friend class Area;
-friend class Volume;
-
-private:
-	int width = 5;
-	int radius = 5;
+	}
 
 };
-//Derived classes Shape and Volume
+
 struct Area : Shape {
 
-	int  getAreaSquare() {
+	int getSquareArea() {
 		return (width * width);
 	}
-
-
-	float getAreaCircle() {
-		return (pi * radius * radius);
+	int getCircleArea() {
+		return (3, 14 * radius ^ 2);
 	}
 
+	Area(int width,int radius) : Shape(width, radius) {
 
-const float pi = 3.14;
-	
+
+	}
+
+	~Area() {
+		cout << "Area of Square is: " << getSquareArea() << endl;
+		cout << "Area of Circle is: " << getCircleArea() << endl;
+		
+	}
+
 };
+
 struct Volume : Area {
+
+	int height;
 
 	void setHeight(int h) {
 		height = h;
 	}
 
-	int getVolumeCube() {
-		return getAreaSquare() * this-> width;
-	}
-	double getVolumeCylinder() {
-		return this->height * getAreaCircle();
-
+	int getCubeVolume() {
+		return (getSquareArea() * radius);
 	}
 
-	Volume() {
-		cout << "The Volume of the Cube is: " << getVolumeCube() << endl;
-		cout << "The Volume of the Cylinder is: " << getVolumeCylinder() << endl;
+	int getCylinderVolume() {
+		return (getCircleArea() * height);
 	}
 
+	Volume(int width, int radius, int height) : Area(width, radius) {
 
-private:
-	int height = 7;
+		this->height = height;
+		this->width = width;
+		this->radius = radius;
+	};
+
+	~Volume() {
+
+		cout << "Volume of Cube is: " << getCubeVolume() << endl;
+		cout << "Volume of Cylinder is  " << getCylinderVolume() << endl;
+		cout << "Width: " << width << endl; 
+		cout << "Radius: " << radius << endl;
+		cout << "Height: " << height << endl; 
+	};
 
 };
 
-int main (){
-Volume Vol; 
+int main() {
 
-//Print Area and Volume
+	
+	Volume obj2(1,2,5);
 
-Vol.getVolumeCube();
-Vol.getVolumeCylinder();
-		
-		return 0;
-};
+
+
+}
