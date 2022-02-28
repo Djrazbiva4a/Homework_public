@@ -1,0 +1,146 @@
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+
+using namespace std;
+
+struct Converter {
+
+	string converter;
+};
+
+struct Scales {
+public:
+	double kilograms;
+	double size;
+	double grams;
+	double milligrams;
+	double grains;
+	string sourceMetricScale;
+	string destMetricScale;
+
+};
+
+
+struct Distance {
+
+public:
+	double kilometer;
+	double meter;
+	double cantimeter;
+	double milimiter;
+	double miles;
+	double foots;
+	string sourceMetricMeasures;
+	string destMetricMeasures;
+};
+
+struct Curency {
+
+	double euro;
+	double lev;
+	double dollar;
+	string sourceMetricCurrency;
+	string destMetricCurrecny;
+};
+int main() {
+	Scales Mass;
+	Converter Con;
+
+
+
+	cout << "Provide the input metric:" << endl;
+	cin >> Mass.sourceMetricScale;
+	if (Mass.sourceMetricScale == "kg") {
+		cout << "Provide the amount of kilograms which you want to be converted" << endl;
+		cin >> Mass.kilograms;
+		cout << "Provide the unit that you want the kilograms to be converted in - g/gr/mg : " << endl;
+		cin >> Mass.destMetricScale;
+		if (Mass.destMetricScale == "g") {
+
+			cout << "Total amount is: " << Mass.kilograms * 1000 << " grams" << endl;
+		}
+		else if (Mass.destMetricScale == "gr") {
+			cout << "Total amount is: " << Mass.kilograms * 15432 << " gr" << endl; 
+
+		}
+		else if (Mass.destMetricScale == "mg") {
+			cout << "Total amount is: " << Mass.kilograms * 1000000 << " mg" << endl; 
+		}
+
+
+	}
+	else if (Mass.sourceMetricScale == "g") {
+		cout << "Provide the amount of grams which you want to be converted" << endl;
+		cin >> Mass.grams;
+		cout << "Provide the unit that you want the grams to be converted in - kg/gr/mg : " << endl;
+		cin >> Mass.destMetricScale;
+		if (Mass.destMetricScale == "kg") {
+
+			cout << "Total amount is: " << Mass.grams * 0.001 << " kg" << endl;
+		}
+		else if (Mass.destMetricScale == "mg") {
+
+			cout << "Total amount is: " << Mass.grams * 1000 << " mg" << endl;
+		}
+		else if (Mass.destMetricScale == "gr") {
+
+			cout << "Total amount is: " << Mass.grams * 15.43235 << " grains" << endl;
+		}
+	}
+	else if (Mass.sourceMetricScale == "gr") {
+		cout << "Provide the amount of grains which you want to be converted" << endl;
+		cin >> Mass.grains;
+		cout << "Provide the unit that you want the grains to be converted in - kilograms/grams/milligrams : " << endl;
+		cin >> Mass.destMetricScale;
+
+		if (Mass.destMetricScale == "kg") {
+
+			cout << "Total amount: " << Mass.grains / 15432 << " kg" << endl;
+
+		}
+		else if (Mass.destMetricScale == "g") {
+
+			cout << "Total amount is: " << Mass.grains / 15.432 << " g" << endl;
+		}
+		else if (Mass.destMetricScale == "mg") {
+
+			cout << "Total amount is: " << Mass.grains / 0.015432 << " mg" << endl;
+		}
+
+
+	}
+	else if (Mass.sourceMetricScale == "milligrams") {
+		cout << "Provide how much miligrams you want to be converted" << endl;
+		cin >> Mass.milligrams;
+		cout << "Provide the unit that you want the grains to be converted in - kg/g/gr : " << endl;
+		cin >> Mass.destMetricScale;
+
+		if (Mass.destMetricScale == "kg") {
+			cout << "Total amount: " << Mass.milligrams / 10000 << " kg" << endl;
+
+		}
+		else if (Mass.destMetricScale == "g") {
+			cout << "Total amount: " << Mass.milligrams / 1000 << " g" << endl;
+
+		}
+		else if (Mass.destMetricScale == "gr") {
+			cout << "Total amount: " << Mass.milligrams * 0.015432 << " gr" << endl;
+		}
+
+
+
+	}if (Mass.sourceMetricScale != "kg", "gr", "g", "mg") {
+		cout << "Wrong input, insert gr/g/kg/mg" << endl; 
+	}
+	else if (Mass.destMetricScale != "kg", "gr", "g", "mg") {
+		cout << "Wrong input, insert gr/g/kg/mg" << endl;
+	}
+	
+
+	Distance Dist;
+
+	
+}
+
+
